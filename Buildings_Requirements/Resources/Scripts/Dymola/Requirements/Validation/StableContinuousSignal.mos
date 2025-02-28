@@ -1,0 +1,12 @@
+﻿simulateModel("Buildings_Requirements.Validation.StableContinuousSignal",
+  stopTime=3600,
+  method="Radau",
+  tolerance=1e-06,
+  resultFile="StableContinuousSignal");
+createPlot(id=1, position={55, 55, 592, 552}, y={"staSigOn.u"}, range={0.0, 4000.0, -1.0, 2.0}, grid=true, subPlot=101, colors={{28,108,200}}, timeUnit="s");
+createPlot(id=1, position={55, 55, 592, 552}, y={"staSigOn.req.localProperty", "staSigPul.req.localProperty"}, range={0.0, 1200.0, 1.0, 4.0}, grid=true, subPlot=102, colors={{28,108,200}, {28,108,200}}, timeUnit="s");
+createPlot(id=1, position={55, 55, 592, 552}, y={"staSigOn.greThr.u", "staSigOn.greThr.t"}, range={0.0, 1200.0, -0.01, 0.019999999999999997}, grid=true, subPlot=103, colors={{28,108,200}, {238,46,47}}, timeUnit="s", displayUnits={"", "1/s"});
+createPlot(id=2, position={692, 61, 592, 536}, y={"staSigOn1.u"}, range={0.0, 4000.0, -1.0, 2.0}, grid=true, subPlot=101, colors={{28,108,200}}, timeUnit="s");
+createPlot(id=2, position={692, 61, 592, 536}, y={"staSigOn1.greThr.u", "staSigPul1.greThr.u"}, range={0.0, 1200.0, -0.02, 0.02}, grid=true, subPlot=102, colors={{28,108,200}, {238,46,47}}, timeUnit="s");
+createPlot(id=2, position={692, 61, 592, 536}, y={"staSigOn1.req.localProperty", "staSigPul1.req.property"}, range={0.0, 1200.0, 0.0, 4.0}, grid=true, subPlot=103, colors={{28,108,200}, {28,108,200}}, timeUnit="s");
+

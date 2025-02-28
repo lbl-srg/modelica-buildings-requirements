@@ -1,0 +1,8 @@
+simulateModel("Buildings_Requirements.Validation.GreaterEqual",
+  method="Radau",
+  tolerance=1e-06,
+  resultFile="GreaterEqual");
+createPlot(id=1, position={55, 55, 592, 704}, y={"greAct.u_min", "greAct.u_max"}, range={0.0, 1.0, -2.0, 2.0}, grid=true, subPlot=101, colors={{28,108,200}, {238,46,47}}, timeUnit="s");
+createPlot(id=1, position={55, 55, 592, 704}, y={"greAct.req.property", "greAct1.req.property", "greAct2.req.property", "greAct3.req.property"}, range={0.0, 1.0, 0.0, 4.0}, grid=true, subPlot=102, colors={{28,108,200}, {28,108,200}, {28,108,200}, {28,108,200}}, timeUnit="s");
+createPlot(id=1, position={55, 55, 592, 704}, y={"greAct2.active"}, range={0.0, 1.0, -1.0, 2.0}, grid=true, subPlot=103, colors={{28,108,200}}, timeUnit="s");
+

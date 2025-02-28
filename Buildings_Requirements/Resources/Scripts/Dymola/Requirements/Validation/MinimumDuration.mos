@@ -1,0 +1,8 @@
+﻿simulateModel("Buildings_Requirements.Validation.MinimumDuration",
+  stopTime=60,
+  method="Radau",
+  tolerance=1e-06,
+  resultFile="MinimumDuration");
+createPlot(id=1, position={15, 15, 638, 456}, y={"minDur20.req.property"}, range={0.0, 60.0, 0.0, 3.0}, grid=true, subPlot=101, colors={{28,108,200}}, timeUnit="s");
+createPlot(id=1, position={15, 15, 638, 456}, y={"minDur10.req.property"}, range={0.0, 60.0, 1.0, 4.0}, grid=true, subPlot=102, colors={{28,108,200}}, timeUnit="s");
+
