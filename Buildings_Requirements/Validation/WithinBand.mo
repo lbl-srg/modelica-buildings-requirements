@@ -5,11 +5,11 @@ model WithinBand
   inner Modelica_Requirements.Verify.PrintViolations printViolations
     "Prints requirements violations"
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
-  Buildings_Requirements.WithinBand reqWitBan(
+  Buildings_Requirements.WithinBand_old reqWitBan(
     text="Test whether signal is within band",
     u_max=0.5,
     u_min=-0.5) annotation (Placement(transformation(extent={{20,20},{40,40}})));
-  Buildings_Requirements.WithinBand reqWitBan1(
+  Buildings_Requirements.WithinBand_old reqWitBan1(
     text="Test whether signal is within band",
     use_activeInput=true,
     u_max=0.5,
@@ -20,7 +20,7 @@ model WithinBand
   Buildings.Controls.OBC.CDL.Logical.Sources.Constant off(k=false)
     "Outputs false"
     annotation (Placement(transformation(extent={{-60,-44},{-40,-24}})));
-  Buildings_Requirements.WithinBand reqWitBan2(
+  Buildings_Requirements.WithinBand_old reqWitBan2(
     text="Test whether signal is within band",
     use_activeInput=true,
     u_max=0.5,

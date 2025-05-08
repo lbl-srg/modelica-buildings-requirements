@@ -1,5 +1,5 @@
 within Buildings_Requirements;
-block WithinBand
+block WithinBand_old
   "Block that verifies whether a signal is within a lower and upper bound when the test is active"
   extends Buildings_Requirements.BaseClasses.PartialSignalTestWhenActive;
 
@@ -25,10 +25,10 @@ protected
     "Switch to disable activation of verification. This can avoid state events if the verification is inactive"
     annotation (Placement(transformation(extent={{-20,40},{0,60}})));
 
-public
-  Modelica.Blocks.Logical.Not not1
-    annotation (Placement(transformation(extent={{70,40},{90,60}})));
 equation
+  connect(witBan.y, booToInt.u)
+    annotation (Line(points={{53,50},{60,50},{60,-14},{-26,-14},{-26,-30},{-22,
+          -30}},                                 color={255,0,255}));
   connect(truDel.y, swi.u2) annotation (Line(points={{-58,-40},{-34,-40},{-34,
           50},{-22,50}},
                 color={255,0,255}));
@@ -46,10 +46,6 @@ equation
   connect(intSwi.u2, truDel.y)
     annotation (Line(points={{18,-50},{-34,-50},{-34,-40},{-58,-40}},
                                               color={255,0,255}));
-  connect(witBan.y, not1.u)
-    annotation (Line(points={{53,50},{68,50}}, color={255,0,255}));
-  connect(not1.y, booToInt.u) annotation (Line(points={{91,50},{96,50},{96,-10},
-          {-26,-10},{-26,-30},{-22,-30}}, color={255,0,255}));
   annotation (
     defaultComponentName="reqWitBan",
   Diagram(coordinateSystem(extent={{-100,-100},{100,100}})), Icon(
@@ -114,4 +110,4 @@ December 19, 2024, by Michael Wetter:<br/>
 First implementation.
 </li>
 </html>"));
-end WithinBand;
+end WithinBand_old;

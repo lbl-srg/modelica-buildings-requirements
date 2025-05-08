@@ -3,5 +3,6 @@ GreaterEqual
 MinimumDuration
 StableContinuousSignal
 WithinBand
+WithinBand_old
 Validation
 BaseClasses
