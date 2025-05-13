@@ -30,9 +30,8 @@ protected
   Modelica_Requirements.LogicalBlocks.IntegerToProperty ItoP1
     "Integer to property conversion"
     annotation (Placement(transformation(extent={{44,-60},{64,-40}})));
-  Buildings.Controls.OBC.CDL.Conversions.BooleanToInteger booToInt(
-    final integerTrue=1,
-    final integerFalse=3)
+  Buildings.Controls.OBC.CDL.Conversions.BooleanToInteger booToInt(final
+      integerTrue=3, final integerFalse=1)
       "Boolean to integer conversion"
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   Buildings.Controls.OBC.CDL.Integers.Switch intSwi

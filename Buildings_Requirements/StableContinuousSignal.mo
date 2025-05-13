@@ -12,7 +12,7 @@ block StableContinuousSignal
       Placement(transformation(extent={{-140,20},{-100,60}}),
         iconTransformation(extent={{-120,30},{-100,50}})));
 
-  Buildings.Controls.OBC.CDL.Reals.GreaterThreshold greThr(
+  Buildings.Controls.OBC.CDL.Reals.LessThreshold    lesThr(
     final t=t,
     h=t/20)
     "Check whether signal is stable"
@@ -48,7 +48,7 @@ protected
     "Moving average of the signal"
     annotation (Placement(transformation(extent={{0,30},{20,50}})));
 equation
-  connect(greThr.y, booToInt.u) annotation (Line(points={{92,40},{96,40},{96,
+  connect(lesThr.y, booToInt.u) annotation (Line(points={{92,40},{96,40},{96,
           -12},{-26,-12},{-26,-30},{-22,-30}},
                                           color={255,0,255}));
   connect(truDel.y, movAve.active) annotation (Line(points={{-58,-40},{-34,-40},
@@ -59,7 +59,7 @@ equation
     annotation (Line(points={{-32,40},{-39,40}}, color={0,0,127}));
   connect(act.y, movAve.active) annotation (Line(points={{-58,-10},{10,-10},{10,
           28}},     color={255,0,255}));
-  connect(swiVer.y, greThr.u)
+  connect(swiVer.y,lesThr. u)
     annotation (Line(points={{62,40},{68,40}}, color={0,0,127}));
   connect(truDelVer.u, truDel.y) annotation (Line(points={{-22,10},{-34,10},{-34,
           -40},{-58,-40}}, color={255,0,255}));
