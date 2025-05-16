@@ -44,7 +44,7 @@ equation
       Tolerance=1e-06,
       __Dymola_Algorithm="Radau"),
       __Dymola_Commands(file=
-          "modelica://IndustrialPilot/Resources/Scripts/Dymola/Requirements/Validation/WithinBand.mos"
+          "modelica://Buildings_Requirements/Resources/Scripts/Dymola/Requirements/Validation/WithinBand.mos"
         "Simulate and plot"),
   Documentation(info="<html>
 <p>
