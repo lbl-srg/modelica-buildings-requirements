@@ -5,3 +5,4 @@ simulateModel("Buildings_Requirements.Validation.WithinBand",
 createPlot(id=1, position={471, 51, 592, 683}, y={"reqWitBan.u", "reqWitBan.u_min", "reqWitBan.u_max"}, range={0.0, 1.0, -2.0, 2.0}, grid=true, subPlot=101, colors={{28,108,200}, {238,46,47}, {0,140,72}}, timeUnit="s");
 createPlot(id=1, position={471, 51, 592, 683}, y={"reqWitBan.req.property", "reqWitBan1.req.property", "reqWitBan2.req.property"}, range={0.0, 1.0, 0.0, 4.0}, grid=true, subPlot=102, colors={{28,108,200}, {28,108,200}, {28,108,200}}, timeUnit="s");
 createPlot(id=1, position={471, 51, 592, 683}, y={"booPul.y"}, range={0.0, 1.0, -1.0, 2.0}, grid=true, subPlot=103, colors={{28,108,200}}, timeUnit="s");
+createPlot(id=2, position={851, 22, 791, 561}, y={"reqCon1.req.property", "reqCon2.req.property", "reqCon3.req.property"}, range={0.0, 1.0, 0.88, 1.12}, grid=true, colors={{28,108,200}, {28,108,200}, {28,108,200}}, timeUnit="s");
