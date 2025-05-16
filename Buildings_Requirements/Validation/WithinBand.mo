@@ -72,7 +72,7 @@ equation
   connect(zer2.y, reqCon3.u)
     annotation (Line(points={{62,-46},{79,-46}}, color={0,0,127}));
   annotation (experiment(
-      StopTime=60,
+      StopTime=1,
       Tolerance=1e-06,
       __Dymola_Algorithm="Radau"),
       __Dymola_Commands(file=
