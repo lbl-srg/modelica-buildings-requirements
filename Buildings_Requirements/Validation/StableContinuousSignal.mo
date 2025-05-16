@@ -47,7 +47,7 @@ equation
   connect(booPul1.y, staSigPul1.active) annotation (Line(points={{-38,-50},{-10,
           -50},{-10,-54},{18,-54}}, color={255,0,255}));
   annotation (experiment(
-      StopTime=1200,
+      StopTime=3600,
       Tolerance=1e-06,
       __Dymola_Algorithm="Radau"),
       __Dymola_Commands(file=

@@ -31,8 +31,8 @@ protected
     "Integer to property conversion"
     annotation (Placement(transformation(extent={{44,-60},{64,-40}})));
   Buildings.Controls.OBC.CDL.Conversions.BooleanToInteger booToInt(
-    final integerTrue=1,
-    final integerFalse=3)
+    final integerTrue=3,
+    final integerFalse=1)
       "Boolean to integer conversion"
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   Buildings.Controls.OBC.CDL.Integers.Switch intSwi
@@ -69,6 +69,11 @@ and activate the verification only after a certain delay time.
 </p>
 </html>", revisions="<html>
 <ul>
+<li>
+May 16, 2025, by Michael Wetter:<br/>
+Updated boolean conversion.</br>
+This is for <a href=\"https://github.com/lbl-srg/modelica-buildings-requirements/issues/2\">issue 2</a>.
+</li>
 <li>
 December 19, 2024, by Michael Wetter:<br/>
 First implementation.

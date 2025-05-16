@@ -13,18 +13,16 @@ block GreaterEqual
       Placement(transformation(extent={{-140,0},{-100,40}}),
         iconTransformation(extent={{-120,10},{-100,30}})));
 
-  Buildings.Controls.OBC.CDL.Reals.Less    lesThr(
-                                               h=0)
+  Buildings.Controls.OBC.CDL.Reals.Less lesThr(h=0)
     "Tests wether u1 is less than u2"
     annotation (Placement(transformation(extent={{20,50},{40,70}})));
 protected
   Buildings.Controls.OBC.CDL.Reals.Switch swi
     "Switch to disable activation of verification. This can avoid state events if the verification is inactive"
     annotation (Placement(transformation(extent={{-20,30},{0,50}})));
+  Buildings.Controls.OBC.CDL.Logical.Not not1 "Negate output"
+    annotation (Placement(transformation(extent={{60,50},{80,70}})));
 equation
-  connect(lesThr.y, booToInt.u)
-    annotation (Line(points={{42,60},{52,60},{52,-10},{-26,-10},{-26,-30},{-22,
-          -30}},                                 color={255,0,255}));
   connect(lesThr.u1, u_max) annotation (Line(points={{18,60},{-120,60}},
                       color={0,0,127}));
   connect(truDel.y, swi.u2) annotation (Line(points={{-58,-40},{-34,-40},{-34,
@@ -43,6 +41,10 @@ equation
   connect(intSwi.u2, truDel.y)
     annotation (Line(points={{18,-50},{-34,-50},{-34,-40},{-58,-40}},
                                               color={255,0,255}));
+  connect(lesThr.y, not1.u)
+    annotation (Line(points={{42,60},{58,60}}, color={255,0,255}));
+  connect(not1.y, booToInt.u) annotation (Line(points={{82,60},{88,60},{88,-10},
+          {-26,-10},{-26,-30},{-22,-30}}, color={255,0,255}));
   annotation (
     defaultComponentName="greAct",
   Diagram(coordinateSystem(extent={{-100,-100},{100,100}})), Icon(
@@ -79,6 +81,11 @@ when the signal <code>active</code> is <code>true</code>.
 </p>
 </html>", revisions="<html>
 <ul>
+<li>
+May 16, 2025, by Michael Wetter:<br/>
+Added <code>not1</code> instance due to change of boolean to integer conversion.</br>
+This is for <a href=\"https://github.com/lbl-srg/modelica-buildings-requirements/issues/2\">issue 2</a>.
+</li>
 <li>
 December 20, 2024, by Michael Wetter:<br/>
 Refactored to remove inequality test when the verification is inactive.
