@@ -1,0 +1,13 @@
+compareVars :=
+  {
+    "staSigOn.u",
+    "staSigOn.req.localProperty",
+    "staSigPul.req.localProperty",
+    "staSigOn.greThr.u",
+    "staSigOn.greThr.t",
+    "staSigOn1.u",
+    "staSigOn1.greThr.u",
+    "staSigPul1.greThr.u",
+    "staSigOn1.req.localProperty",
+    "staSigPul1.req.property"
+  };

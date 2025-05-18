@@ -1,0 +1,5 @@
+compareVars :=
+  {
+    "minDur20.req.property",
+    "minDur10.req.property"
+  };

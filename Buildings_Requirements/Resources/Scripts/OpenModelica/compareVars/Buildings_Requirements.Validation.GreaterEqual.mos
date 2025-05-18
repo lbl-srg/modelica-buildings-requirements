@@ -1,0 +1,10 @@
+compareVars :=
+  {
+    "greAct.u_min",
+    "greAct.u_max",
+    "greAct.req.property",
+    "greAct1.req.property",
+    "greAct2.req.property",
+    "greAct3.req.property",
+    "greAct2.active"
+  };

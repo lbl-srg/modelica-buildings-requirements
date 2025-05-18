@@ -1,0 +1,13 @@
+compareVars :=
+  {
+    "reqWitBan.u",
+    "reqWitBan.u_min",
+    "reqWitBan.u_max",
+    "reqWitBan.req.property",
+    "reqWitBan1.req.property",
+    "reqWitBan2.req.property",
+    "booPul.y",
+    "reqCon1.req.property",
+    "reqCon2.req.property",
+    "reqCon3.req.property"
+  };
