@@ -5,7 +5,7 @@ package Buildings_Requirements
   extends Modelica.Icons.Package;
 annotation(
   uses(
-    Buildings(version = "12.0.0"),
+    Buildings(version = "12.1.0"),
     Modelica(version = "4.0.0"),
     Modelica_Requirements(version="0.7")));
 
