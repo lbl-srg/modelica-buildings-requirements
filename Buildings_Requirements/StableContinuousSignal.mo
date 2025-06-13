@@ -17,7 +17,12 @@ block StableContinuousSignal
     h=t/20)
     "Check whether signal is stable"
     annotation (Placement(transformation(extent={{140,30},{160,50}})));
-
+  Modelica_Requirements.SignalAnalysis.MovingAverage movAve(
+    final T=T,
+    u(unit="1/s"),
+    y(unit="1/s"))
+    "Moving average of the signal"
+    annotation (Placement(transformation(extent={{60,30},{80,50}})));
 protected
   Modelica.Blocks.Continuous.Derivative derU(
     final k=1,
@@ -43,10 +48,7 @@ protected
   Buildings.Controls.OBC.CDL.Reals.Abs abs
     "Absolute value of the signal time derivative"
     annotation (Placement(transformation(extent={{20,30},{40,50}})));
-  Modelica_Requirements.SignalAnalysis.MovingAverage movAve(
-    final T=T)
-    "Moving average of the signal"
-    annotation (Placement(transformation(extent={{60,30},{80,50}})));
+
   Buildings.Controls.OBC.CDL.Logical.Not not1 "Negate output"
     annotation (Placement(transformation(extent={{180,30},{200,50}})));
 
