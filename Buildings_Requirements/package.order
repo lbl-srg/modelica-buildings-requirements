@@ -3,5 +3,6 @@ GreaterEqual
 MinimumDuration
 StableContinuousSignal
 WithinBand
+PlantRequirement
 Validation
 BaseClasses

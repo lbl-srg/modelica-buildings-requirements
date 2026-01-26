@@ -1,2 +1,5 @@
 PartialRequirement
 PartialSignalTestWhenActive
+HeatAndCoolingRequirements
+ThermalEnergyStorageRequirement
+PumpRequirement
