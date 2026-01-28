@@ -27,6 +27,16 @@ protected
     "Block that outputs true"
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 
+public
+  parameter Real tThr=0
+    "Threshold time for constraint to be considered violated";
+  Modelica.Blocks.Logical.Not not2
+    annotation (Placement(transformation(extent={{20,-10},{0,10}})));
+  Buildings.Controls.OBC.CDL.Logical.TrueDelay truDel1(delayTime=tThr)
+    annotation (Placement(transformation(extent={{52,-10},{32,10}})));
+  Modelica.Blocks.Logical.Not not1
+    annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+protected
   Modelica_Requirements.LogicalBlocks.IntegerToProperty ItoP1
     "Integer to property conversion"
     annotation (Placement(transformation(extent={{44,-60},{64,-40}})));
@@ -55,6 +65,12 @@ equation
                                        color={255,0,128}));
   connect(truDel.u, active) annotation (Line(points={{-82,-40},{-120,-40}},
                       color={255,0,255}));
+  connect(not2.u, truDel1.y)
+    annotation (Line(points={{22,0},{30,0}}, color={255,0,255}));
+  connect(truDel1.u, not1.y)
+    annotation (Line(points={{54,0},{59,0}}, color={255,0,255}));
+  connect(not2.y, booToInt.u) annotation (Line(points={{-1,0},{-28,0},{-28,-30},
+          {-22,-30}}, color={255,0,255}));
   annotation (
     defaultComponentName="reqWitBan",
   Diagram(coordinateSystem(extent={{-100,-100},{100,100}})), Icon(

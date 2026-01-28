@@ -26,9 +26,6 @@ protected
     annotation (Placement(transformation(extent={{-20,40},{0,60}})));
 
 equation
-  connect(witBan.y, booToInt.u)
-    annotation (Line(points={{53,50},{60,50},{60,-14},{-26,-14},{-26,-30},{-22,
-          -30}},                                 color={255,0,255}));
   connect(truDel.y, swi.u2) annotation (Line(points={{-58,-40},{-34,-40},{-34,
           50},{-22,50}},
                 color={255,0,255}));
@@ -46,6 +43,8 @@ equation
   connect(intSwi.u2, truDel.y)
     annotation (Line(points={{18,-50},{-34,-50},{-34,-40},{-58,-40}},
                                               color={255,0,255}));
+  connect(witBan.y, not1.u) annotation (Line(points={{53,50},{92,50},{92,0},{82,
+          0}}, color={255,0,255}));
   annotation (
     defaultComponentName="reqWitBan",
   Diagram(coordinateSystem(extent={{-100,-100},{100,100}})), Icon(

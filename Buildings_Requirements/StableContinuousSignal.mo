@@ -49,7 +49,7 @@ protected
     "Absolute value of the signal time derivative"
     annotation (Placement(transformation(extent={{20,30},{40,50}})));
 
-  Buildings.Controls.OBC.CDL.Logical.Not not1 "Negate output"
+  Buildings.Controls.OBC.CDL.Logical.Not not3 "Negate output"
     annotation (Placement(transformation(extent={{180,30},{200,50}})));
 
 equation
@@ -87,10 +87,10 @@ equation
     annotation (Line(points={{-22,40},{-38,40}}, color={0,0,127}));
   connect(intSwi.u2, truDelVer.y) annotation (Line(points={{18,-50},{14,-50},{14,
           10},{2,10}}, color={255,0,255}));
-  connect(greThr.y, not1.u)
+  connect(greThr.y, not3.u)
     annotation (Line(points={{162,40},{178,40}}, color={255,0,255}));
-  connect(not1.y, booToInt.u) annotation (Line(points={{202,40},{210,40},{210,-12},
-          {-28,-12},{-28,-30},{-22,-30}}, color={255,0,255}));
+  connect(not3.y, not1.u) annotation (Line(points={{202,40},{204,40},{204,0},{
+          82,0}}, color={255,0,255}));
   annotation (
     defaultComponentName="staSig",
   Diagram(coordinateSystem(extent={{-100,-100},{240,100}})), Icon(

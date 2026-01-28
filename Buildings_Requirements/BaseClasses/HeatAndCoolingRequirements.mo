@@ -54,6 +54,7 @@ block HeatAndCoolingRequirements
         delayTimeEqu/60) + " min.",
     use_activeInput=true,
     delayTime(displayUnit="min") = delayTimeEqu,
+    tThr=tThr,
     u_max(
       final unit="K",
       displayUnit="K") = dTallBanEqu/2,
@@ -68,6 +69,7 @@ block HeatAndCoolingRequirements
     name=equNam,
     text="This " + equNam + " supply temperature must show stable operation",
     use_activeInput=true,
+    tThr=tThr,
     T=tWinEqu,
     t=tSupEqu)
     "Requirement to verify stability of equipement supply temperature"
@@ -85,6 +87,7 @@ block HeatAndCoolingRequirements
         " min.",
     use_activeInput=true,
     delayTime(displayUnit="min") = delayTimeEqu,
+    tThr=tThr,
     u_max(
       final unit="K",
       displayUnit="K") = dTSupRetMaxEqu,
@@ -121,6 +124,7 @@ block HeatAndCoolingRequirements
          + String(delayTimeEqu/60/10) + " min.",
     use_activeInput=true,
     delayTime(displayUnit="min") = delayTimeEqu/10,
+    tThr=tThr,
     u_max(
       final unit="K",
       displayUnit="K") = TMaxEqu,
@@ -155,6 +159,8 @@ block HeatAndCoolingRequirements
   Buildings.Controls.OBC.CDL.Reals.MultiplyByParameter gai(k=-1/(TMaxEqu -
         TMinEqu))
     annotation (Placement(transformation(extent={{0,30},{20,50}})));
+  parameter Real tThr=600
+    "Threshold time for constraint to be considered violated";
 equation
   connect(TSupEqu, sub.u1) annotation (Line(points={{-100,18},{-100,16},{-42,16}},
                      color={0,0,127}));

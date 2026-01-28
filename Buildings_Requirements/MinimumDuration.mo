@@ -15,8 +15,8 @@ block MinimumDuration
     final durationMin=durationMin) "Check for minimum duration"
     annotation (Placement(transformation(extent={{-40,-10},{0,10}})));
 equation
-  connect(u, minDur.condition) annotation (Line(points={{-120,0},{-84,0},{-84,0.1},
-          {-42,0.1}}, color={255,0,255}));
+  connect(u, minDur.condition) annotation (Line(points={{-120,0},{-84,0},{-84,0},
+          {-42,0}},   color={255,0,255}));
   connect(minDur.y, req.property) annotation (Line(points={{1,0},{16,0},{16,-80},
           {30,-80}}, color={255,0,128}));
   annotation (

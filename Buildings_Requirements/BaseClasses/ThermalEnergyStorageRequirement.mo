@@ -46,14 +46,16 @@ block ThermalEnergyStorageRequirement
     text="This tank average temperature is above the upper bound once the equipement is active for "
          + String(delayTime/60) + " minutes.",
     use_activeInput=true,
-    delayTime=delayTime)
+    delayTime=delayTime,
+    tThr=tThr)
     annotation (Placement(transformation(extent={{-20,60},{0,80}})));
   GreaterEqual greTLow(
     name="tank",
     text="This tank average temperature is below the lower bound once the equipement is active for "
          + String(delayTime/60) + " minutes.",
     use_activeInput=true,
-    delayTime=delayTime)
+    delayTime=delayTime,
+    tThr=tThr)
     annotation (Placement(transformation(extent={{40,60},{60,80}})));
   Modelica.Blocks.Math.MultiSum multiSum(nu=nTanLay)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
@@ -63,6 +65,8 @@ block ThermalEnergyStorageRequirement
     annotation (Placement(transformation(extent={{0,-20},{20,0}})));
   Modelica.Blocks.Sources.Constant TLayMin(each k=TMin)
     annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
+  parameter Real tThr=600
+    "Threshold time for constraint to be considered violated";
 equation
   connect(y,greTUpp. active) annotation (Line(points={{-120,60},{-34,60},{
           -34,66},{-22,66}},                         color={255,0,255}));

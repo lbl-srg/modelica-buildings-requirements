@@ -20,7 +20,7 @@ protected
   Buildings.Controls.OBC.CDL.Reals.Switch swi
     "Switch to disable activation of verification. This can avoid state events if the verification is inactive"
     annotation (Placement(transformation(extent={{-20,30},{0,50}})));
-  Buildings.Controls.OBC.CDL.Logical.Not not1 "Negate output"
+  Buildings.Controls.OBC.CDL.Logical.Not not3 "Negate output"
     annotation (Placement(transformation(extent={{60,50},{80,70}})));
 equation
   connect(lesThr.u1, u_max) annotation (Line(points={{18,60},{-120,60}},
@@ -41,10 +41,10 @@ equation
   connect(intSwi.u2, truDel.y)
     annotation (Line(points={{18,-50},{-34,-50},{-34,-40},{-58,-40}},
                                               color={255,0,255}));
-  connect(lesThr.y, not1.u)
+  connect(lesThr.y, not3.u)
     annotation (Line(points={{42,60},{58,60}}, color={255,0,255}));
-  connect(not1.y, booToInt.u) annotation (Line(points={{82,60},{88,60},{88,-10},
-          {-26,-10},{-26,-30},{-22,-30}}, color={255,0,255}));
+  connect(not3.y, not1.u) annotation (Line(points={{82,60},{88,60},{88,0},{82,0}},
+        color={255,0,255}));
   annotation (
     defaultComponentName="greAct",
   Diagram(coordinateSystem(extent={{-100,-100},{100,100}})), Icon(

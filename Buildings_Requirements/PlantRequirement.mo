@@ -373,7 +373,7 @@ block PlantRequirement
         transformation(extent={{-120,-550},{-80,-510}}), iconTransformation(
           extent={{-140,-518},{-100,-478}})));
 
-  Modelica.Blocks.Sources.BooleanExpression staVer(y=time >= tStart + 86400)
+  Modelica.Blocks.Sources.BooleanExpression staVer(y=time >= tStart + 2*86400)
                              "Outputs true if system is ready for verification"
     annotation (Placement(transformation(extent={{-70,70},{-50,90}})));
   Buildings.Controls.OBC.CDL.Logical.And and1[nHeaPum] if nHeaPum > 0
@@ -527,7 +527,7 @@ block PlantRequirement
     delayTime=delayTimeTan,
     TMax=TMaxTan,
     TMin=TMinTan,
-    nTanLay=nTanLay)
+    nTanLay=nTanLay) if nTan > 0
     annotation (Placement(transformation(extent={{100,-680},{120,-660}})));
   BaseClasses.PumpRequirement pumReq[nPum](
     durationMinOn=durationMinPumOn,
@@ -536,8 +536,23 @@ block PlantRequirement
     mMax_flow=mMax_flow,
     dpMax=dpPumMax,
     tWin=tWinPum,
-    t=tPum)
+    t=tPum) if nPum > 0
     annotation (Placement(transformation(extent={{100,-820},{120,-800}})));
+  Buildings.Controls.OBC.CDL.Routing.BooleanScalarReplicator booScaRep6(nout=nTan)
+    if nTan > 0
+    annotation (Placement(transformation(extent={{-20,-650},{0,-630}})));
+  Buildings.Controls.OBC.CDL.Logical.And and7[nTan] if nTan > 0
+    annotation (Placement(transformation(extent={{20,-660},{40,-640}})));
+  Buildings.Controls.OBC.CDL.Routing.BooleanScalarReplicator booScaRep7(nout=nTan)
+    if nPum > 0
+    annotation (Placement(transformation(extent={{-20,-780},{0,-760}})));
+  Buildings.Controls.OBC.CDL.Logical.And and8[nTan] if nTan > 0
+    annotation (Placement(transformation(extent={{20,-790},{40,-770}})));
+  Buildings.Controls.OBC.CDL.Routing.BooleanScalarReplicator booScaRep8(nout=nVal)
+    if nVal > 0
+    annotation (Placement(transformation(extent={{-40,-880},{-20,-860}})));
+  Buildings.Controls.OBC.CDL.Logical.And and9[nTan] if nVal > 0
+    annotation (Placement(transformation(extent={{0,-900},{20,-880}})));
 protected
         parameter Modelica.Units.SI.Time tStart(fixed=false)
     "Start of the simulation";
@@ -632,26 +647,44 @@ equation
           -590},{-4,-544},{96,-544}}, color={0,0,127}));
   connect(TSetCooPla,cooPlaReq. TSupSetEqu) annotation (Line(points={{-100,-620},
           {90,-620},{90,-550},{96,-550}}, color={0,0,127}));
-  connect(yVal, reqStaVal.active) annotation (Line(points={{-100,-890},{24,-890},
-          {24,-914},{38,-914}}, color={255,0,255}));
   connect(yValPos, reqStaVal.u) annotation (Line(points={{-100,-920},{28,-920},{
           28,-906},{39,-906}}, color={0,0,127}));
-  connect(yTan, tanReq.y) annotation (Line(points={{-100,-650},{-100,-648},{-74,
-          -648},{-74,-667},{98,-667}},                        color={255,0,255}));
   connect(TTanSetUpp, tanReq.TSetUpp) annotation (Line(points={{-100,-680},{-74,
           -680},{-74,-669},{98,-669}},             color={0,0,127}));
   connect(TTan, tanReq.TLay) annotation (Line(points={{-100,-740},{-64,-740},{
           -64,-673},{98,-673}},                    color={0,0,127}));
   connect(TTanSetLow, tanReq.TSetLow) annotation (Line(points={{-100,-710},{-68,
           -710},{-68,-671},{98,-671}},       color={0,0,127}));
-  connect(yPum, pumReq.y) annotation (Line(points={{-100,-770},{-100,-772},{-40,
-          -772},{-40,-807},{98,-807}}, color={255,0,255}));
   connect(mPum_flow, pumReq.m_flow) annotation (Line(points={{-100,-800},{-60,
           -800},{-60,-809},{98,-809}}, color={0,0,127}));
   connect(yPumCon, pumReq.yCon) annotation (Line(points={{-100,-860},{-64,-860},
           {-64,-816},{96,-816},{96,-813},{98,-813}}, color={0,0,127}));
   connect(dpPum, pumReq.dp) annotation (Line(points={{-100,-830},{-74,-830},{
           -74,-811},{98,-811}}, color={0,0,127}));
+  connect(booScaRep6.y, and7.u1) annotation (Line(points={{2,-640},{8,-640},{8,
+          -650},{18,-650}}, color={255,0,255}));
+  connect(yTan, and7.u2) annotation (Line(points={{-100,-650},{-100,-652},{-76,
+          -652},{-76,-660},{12,-660},{12,-658},{18,-658}}, color={255,0,255}));
+  connect(and7.y, tanReq.y) annotation (Line(points={{42,-650},{88,-650},{88,
+          -664},{98,-664},{98,-667}}, color={255,0,255}));
+  connect(booScaRep6.u, staVer.y) annotation (Line(points={{-22,-640},{-38,-640},
+          {-38,-530},{-40,80},{-49,80}}, color={255,0,255}));
+  connect(booScaRep7.y, and8.u1) annotation (Line(points={{2,-770},{4,-770},{4,
+          -780},{18,-780}}, color={255,0,255}));
+  connect(and8.u2, yPum) annotation (Line(points={{18,-788},{-68,-788},{-68,
+          -770},{-100,-770}}, color={255,0,255}));
+  connect(and8.y, pumReq.y) annotation (Line(points={{42,-780},{88,-780},{88,
+          -804},{98,-804},{98,-807}}, color={255,0,255}));
+  connect(booScaRep7.u, staVer.y) annotation (Line(points={{-22,-770},{-38,-770},
+          {-38,-530},{-40,80},{-49,80}}, color={255,0,255}));
+  connect(yVal, and9.u2) annotation (Line(points={{-100,-890},{-100,-892},{-12,
+          -892},{-12,-898},{-2,-898}}, color={255,0,255}));
+  connect(booScaRep8.y, and9.u1) annotation (Line(points={{-18,-870},{-12,-870},
+          {-12,-890},{-2,-890}}, color={255,0,255}));
+  connect(booScaRep8.u, staVer.y) annotation (Line(points={{-42,-870},{-42,-768},
+          {-38,-768},{-38,-530},{-40,80},{-49,80}}, color={255,0,255}));
+  connect(and9.y, reqStaVal.active) annotation (Line(points={{22,-890},{68,-890},
+          {68,-928},{32,-928},{32,-914},{38,-914}}, color={255,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-960},
             {260,140}}), graphics={
         Rectangle(

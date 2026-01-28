@@ -66,6 +66,7 @@ block PumpRequirement
     name="pump",
     text="This pump conrol signal must show stable operation.",
     use_activeInput=true,
+    tThr=tThr,
     T=tWin,
     t=t) "Requirement to verify stability of pump control signal"
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
@@ -83,6 +84,8 @@ block PumpRequirement
   Buildings.Controls.OBC.CDL.Interfaces.RealInput yCon
     "Pump control signal" annotation (Placement(transformation(extent={{-140,-70},
             {-100,-30}}), iconTransformation(extent={{-140,-50},{-100,-10}})));
+  parameter Real tThr=600
+    "Threshold time for constraint to be considered violated";
 equation
   connect(not1.y, reqOff.u)
     annotation (Line(points={{42,50},{58,50}}, color={255,0,255}));
