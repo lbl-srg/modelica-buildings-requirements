@@ -29,7 +29,7 @@ protected
     T=1,
     initType=Modelica.Blocks.Types.Init.InitialState,
     x_start=0) "Derivative of the input signal"
-    annotation (Placement(transformation(extent={{-20,30},{0,50}})));
+    annotation (Placement(transformation(extent={{-84,30},{-64,50}})));
   Buildings.Controls.OBC.CDL.Reals.Switch swiVer
     "Switch to enable verification"
     annotation (Placement(transformation(extent={{100,30},{120,50}})));
@@ -37,60 +37,65 @@ protected
     final delayTime=T,
     delayOnInit=true)
     "Delay for start of the verification, used to make sure the moving average has been computed"
-    annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+    annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
   Buildings.Controls.OBC.CDL.Reals.Sources.Constant con(
     final k=0)
     "Outputs zero before tests is enabled"
     annotation (Placement(transformation(extent={{-90,70},{-70,90}})));
   Buildings.Controls.OBC.CDL.Reals.Switch swiCom
     "Switch to keep the input to the integrators constant if the verification is disabled"
-    annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
+    annotation (Placement(transformation(extent={{-20,30},{0,50}})));
   Buildings.Controls.OBC.CDL.Reals.Abs abs
     "Absolute value of the signal time derivative"
     annotation (Placement(transformation(extent={{20,30},{40,50}})));
 
-  Buildings.Controls.OBC.CDL.Logical.Not not3 "Negate output"
+  Buildings.Controls.OBC.CDL.Logical.Not not4 "Negate output"
     annotation (Placement(transformation(extent={{180,30},{200,50}})));
 
 equation
-  connect(truDel.y, movAve.active) annotation (Line(points={{-58,-40},{-34,-40},
-          {-34,-10},{70,-10},{70,28}}, color={255,0,255}));
+  connect(truDel.y, movAve.active) annotation (Line(points={{-58,-40},{-50,-40},
+          {-50,26},{70,26},{70,28}},   color={255,0,255}));
   connect(abs.y, movAve.u)
     annotation (Line(points={{42,40},{58,40}},   color={0,0,127}));
-  connect(abs.u, derU.y)
-    annotation (Line(points={{18,40},{1,40}},    color={0,0,127}));
-  connect(act.y, movAve.active) annotation (Line(points={{-58,-10},{70,-10},{70,
-          28}},     color={255,0,255}));
+  connect(act.y, movAve.active) annotation (Line(points={{-58,-10},{-56,-10},{-56,
+          26},{70,26},{70,28}},
+                    color={255,0,255}));
   connect(swiVer.y, greThr.u)
     annotation (Line(points={{122,40},{138,40}},
                                                color={0,0,127}));
-  connect(truDelVer.u, truDel.y) annotation (Line(points={{-22,10},{-52,10},{-52,
+  connect(truDelVer.u, truDel.y) annotation (Line(points={{-42,-50},{-50,-50},{-50,
           -40},{-58,-40}}, color={255,0,255}));
-  connect(truDelVer.u, act.y) annotation (Line(points={{-22,10},{-34,10},{-34,-10},
-          {-58,-10}}, color={255,0,255}));
-  connect(truDelVer.y, swiVer.u2) annotation (Line(points={{2,10},{90,10},{90,40},
-          {98,40}},                 color={255,0,255}));
+  connect(truDelVer.u, act.y) annotation (Line(points={{-42,-50},{-50,-50},{-50,
+          -10},{-58,-10}},
+                      color={255,0,255}));
+  connect(truDelVer.y, swiVer.u2) annotation (Line(points={{-18,-50},{10,-50},{10,
+          -98},{106,-98},{106,24},{90,24},{90,40},{98,40}},
+                                    color={255,0,255}));
   connect(movAve.y, swiVer.u1) annotation (Line(points={{81,40},{84,40},{84,48},
           {98,48}}, color={0,0,127}));
   connect(con.y, swiVer.u3) annotation (Line(points={{-68,80},{-64,80},{-64,70},
           {94,70},{94,32},{98,32}},
                 color={0,0,127}));
-  connect(act.y, swiCom.u2) annotation (Line(points={{-58,-10},{-52,-10},{-52,20},
-          {-80,20},{-80,40},{-62,40}}, color={255,0,255}));
-  connect(truDel.y, swiCom.u2) annotation (Line(points={{-58,-40},{-34,-40},{-34,
-          20},{-80,20},{-80,40},{-62,40}}, color={255,0,255}));
-  connect(u, swiCom.u1) annotation (Line(points={{-120,40},{-98,40},{-98,48},{-62,
-          48}}, color={0,0,127}));
-  connect(con.y, swiCom.u3) annotation (Line(points={{-68,80},{-64,80},{-64,32},
-          {-62,32}},                   color={0,0,127}));
-  connect(derU.u, swiCom.y)
-    annotation (Line(points={{-22,40},{-38,40}}, color={0,0,127}));
-  connect(intSwi.u2, truDelVer.y) annotation (Line(points={{18,-50},{14,-50},{14,
-          10},{2,10}}, color={255,0,255}));
-  connect(greThr.y, not3.u)
+  connect(act.y, swiCom.u2) annotation (Line(points={{-58,-10},{-50,-10},{-50,
+          26},{-30,26},{-30,40},{-22,40}},
+                                       color={255,0,255}));
+  connect(truDel.y, swiCom.u2) annotation (Line(points={{-58,-40},{-50,-40},{
+          -50,26},{-30,26},{-30,40},{-22,40}},
+                                           color={255,0,255}));
+  connect(con.y, swiCom.u3) annotation (Line(points={{-68,80},{-58,80},{-58,32},
+          {-22,32}},                   color={0,0,127}));
+  connect(intSwi.u2, truDelVer.y) annotation (Line(points={{18,-50},{-18,-50}},
+                       color={255,0,255}));
+  connect(greThr.y, not4.u)
     annotation (Line(points={{162,40},{178,40}}, color={255,0,255}));
-  connect(not3.y, not1.u) annotation (Line(points={{202,40},{204,40},{204,0},{
-          82,0}}, color={255,0,255}));
+  connect(not4.y, not1.u)
+    annotation (Line(points={{202,40},{202,10},{82,10}}, color={255,0,255}));
+  connect(u, derU.u)
+    annotation (Line(points={{-120,40},{-86,40}}, color={0,0,127}));
+  connect(swiCom.y, abs.u)
+    annotation (Line(points={{2,40},{18,40}}, color={0,0,127}));
+  connect(derU.y, swiCom.u1) annotation (Line(points={{-63,40},{-32,40},{-32,48},
+          {-22,48}}, color={0,0,127}));
   annotation (
     defaultComponentName="staSig",
   Diagram(coordinateSystem(extent={{-100,-100},{240,100}})), Icon(

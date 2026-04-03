@@ -543,15 +543,15 @@ block PlantRequirement
     annotation (Placement(transformation(extent={{-20,-650},{0,-630}})));
   Buildings.Controls.OBC.CDL.Logical.And and7[nTan] if nTan > 0
     annotation (Placement(transformation(extent={{20,-660},{40,-640}})));
-  Buildings.Controls.OBC.CDL.Routing.BooleanScalarReplicator booScaRep7(nout=nTan)
+  Buildings.Controls.OBC.CDL.Routing.BooleanScalarReplicator booScaRep7(nout=nPum)
     if nPum > 0
     annotation (Placement(transformation(extent={{-20,-780},{0,-760}})));
-  Buildings.Controls.OBC.CDL.Logical.And and8[nTan] if nTan > 0
+  Buildings.Controls.OBC.CDL.Logical.And and8[nPum] if nPum > 0
     annotation (Placement(transformation(extent={{20,-790},{40,-770}})));
   Buildings.Controls.OBC.CDL.Routing.BooleanScalarReplicator booScaRep8(nout=nVal)
     if nVal > 0
     annotation (Placement(transformation(extent={{-40,-880},{-20,-860}})));
-  Buildings.Controls.OBC.CDL.Logical.And and9[nTan] if nVal > 0
+  Buildings.Controls.OBC.CDL.Logical.And and9[nVal] if nVal > 0
     annotation (Placement(transformation(extent={{0,-900},{20,-880}})));
 protected
         parameter Modelica.Units.SI.Time tStart(fixed=false)
