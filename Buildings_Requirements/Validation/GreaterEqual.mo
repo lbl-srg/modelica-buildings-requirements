@@ -12,20 +12,33 @@ model GreaterEqual
     annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));
   Buildings.Controls.OBC.CDL.Logical.Sources.Pulse booPul(period=0.25)
     annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
-  Buildings_Requirements.GreaterEqual greAct
+  Buildings_Requirements.GreaterEqual greAct(name="AlwaysActive", text=
+        "Sine signal is greater or equal to contant signal")
     "Block that verifies whether a signal is larger than another one"
     annotation (Placement(transformation(extent={{20,50},{40,70}})));
   Buildings.Controls.OBC.CDL.Reals.Sources.Constant con(k=0) "Outputs zero"
     annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
-  Buildings_Requirements.GreaterEqual greAct1(use_activeInput=
+  Buildings_Requirements.GreaterEqual greAct1(
+    name="NeverActive",
+    text=
+        "Sine signal is greater or equal to contant signal subject to activation",
+                                              use_activeInput=
         true)
     "Block that verifies whether a signal is larger than another one"
     annotation (Placement(transformation(extent={{20,10},{40,30}})));
-  Buildings_Requirements.GreaterEqual greAct2(use_activeInput=
+  Buildings_Requirements.GreaterEqual greAct2(
+    name="SometimesActive",
+    text=
+        "Sine signal is greater or equal to contant signal subject to activation",
+                                              use_activeInput=
         true)
     "Block that verifies whether a signal is larger than another one"
     annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
-  Buildings_Requirements.GreaterEqual greAct3(use_activeInput=
+  Buildings_Requirements.GreaterEqual greAct3(
+    name="AlwaysSatisfied",
+    text=
+        "Sine signal is greater or equal to contant signal subject to activation",
+                                              use_activeInput=
         true)
     "Block that verifies whether a signal is larger than another one"
     annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
