@@ -57,7 +57,8 @@ block ThermalEnergyStorageRequirement
     delayTime=delayTime,
     tThr=tThr)
     annotation (Placement(transformation(extent={{40,60},{60,80}})));
-  Modelica.Blocks.Math.MultiSum multiSum(nu=nTanLay)
+  Modelica.Blocks.Math.MultiSum multiSum(k=fill(1/nTanLay, nTanLay),
+                                         nu=nTanLay)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
   Modelica.Blocks.Math.MinMax minMax(nu=nTanLay)
     annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
