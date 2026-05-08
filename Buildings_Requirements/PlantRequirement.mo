@@ -566,8 +566,8 @@ equation
                          color={255,0,255}));
   connect(yHeaPum,and1. u2) annotation (Line(points={{-100,80},{-78,80},{-78,62},
           {-2,62}},  color={255,0,255}));
-  connect(and1.y, heaPumReq.yAct) annotation (Line(points={{22,70},{38,70},{38,80},
-          {98,80}}, color={255,0,255}));
+  connect(and1.y, heaPumReq.active) annotation (Line(points={{22,70},{38,70},{
+          38,80},{98,80}}, color={255,0,255}));
   connect(TSupHeaPum,heaPumReq.TSupEqu)  annotation (Line(points={{-100,50},{40,
           50},{40,75},{98,75}}, color={0,0,127}));
   connect(TRetHeaPum,heaPumReq.TRetEqu)  annotation (Line(points={{-100,20},{50,
@@ -578,8 +578,8 @@ equation
           {72,-49},{80,-49}}, color={0,0,127}));
   connect(booScaRep1.y, and2.u1) annotation (Line(points={{-16,-38},{-10,-38},{-10,
           -48},{-2,-48}}, color={255,0,255}));
-  connect(and2.y,boiReq. yAct) annotation (Line(points={{22,-48},{68,-48},{68,-44},
-          {80,-44}}, color={255,0,255}));
+  connect(and2.y, boiReq.active) annotation (Line(points={{22,-48},{68,-48},{68,
+          -44},{80,-44}}, color={255,0,255}));
   connect(staVer.y, booScaRep1.u) annotation (Line(points={{-49,80},{-46,80},{-46,
           74},{-44,74},{-44,-32},{-46,-32},{-46,-38},{-40,-38}}, color={255,0,255}));
   connect(yBoi, and2.u2) annotation (Line(points={{-100,-40},{-48,-40},{-48,-56},
@@ -601,14 +601,14 @@ equation
           -8,-182},{0,-182}}, color={255,0,255}));
   connect(yChi, and3.u2) annotation (Line(points={{-100,-166},{-50,-166},{-50,-190},
           {0,-190}}, color={255,0,255}));
-  connect(and3.y,chiReq. yAct) annotation (Line(points={{24,-182},{54,-182},{54,
-          -174},{80,-174}}, color={255,0,255}));
+  connect(and3.y, chiReq.active) annotation (Line(points={{24,-182},{54,-182},{
+          54,-174},{80,-174}}, color={255,0,255}));
   connect(booScaRep3.y, and4.u1) annotation (Line(points={{2,-290},{8,-290},{8,-300},
           {14,-300}}, color={255,0,255}));
   connect(yHeaChi, and4.u2) annotation (Line(points={{-100,-290},{-30,-290},{-30,
           -308},{14,-308}}, color={255,0,255}));
-  connect(and4.y,heaChiReq. yAct) annotation (Line(points={{38,-300},{86,-300},{
-          86,-294},{94,-294}}, color={255,0,255}));
+  connect(and4.y, heaChiReq.active) annotation (Line(points={{38,-300},{86,-300},
+          {86,-294},{94,-294}}, color={255,0,255}));
   connect(TSupHeaChi,heaChiReq.TSupEqu)  annotation (Line(points={{-100,-320},{86,
           -320},{86,-302},{88,-302},{88,-299},{94,-299}}, color={0,0,127}));
   connect(TRetHeaChi,heaChiReq.TRetEqu)  annotation (Line(points={{-100,-350},{88,
@@ -620,8 +620,8 @@ equation
   connect(booScaRep4.y,and5. u1) annotation (Line(points={{8,-410},{14,-410},{14,
           -420},{20,-420}},
                       color={255,0,255}));
-  connect(and5.y,heaPlaReq. yAct) annotation (Line(points={{44,-420},{92,-420},{
-          92,-414},{100,-414}}, color={255,0,255}));
+  connect(and5.y, heaPlaReq.active) annotation (Line(points={{44,-420},{92,-420},
+          {92,-414},{100,-414}}, color={255,0,255}));
   connect(staVer.y, booScaRep4.u) annotation (Line(points={{-49,80},{-49,-290},{
           -32,-290},{-32,-410},{-16,-410}}, color={255,0,255}));
   connect(TSupHeaPla,heaPlaReq.TSupEqu)  annotation (Line(points={{-100,-440},{92,
@@ -635,8 +635,8 @@ equation
   connect(booScaRep5.y,and6. u1) annotation (Line(points={{4,-530},{10,-530},{10,
           -540},{16,-540}},
                       color={255,0,255}));
-  connect(and6.y,cooPlaReq. yAct) annotation (Line(points={{40,-540},{88,-540},{
-          88,-534},{96,-534}}, color={255,0,255}));
+  connect(and6.y, cooPlaReq.active) annotation (Line(points={{40,-540},{88,-540},
+          {88,-534},{96,-534}}, color={255,0,255}));
   connect(staVer.y, booScaRep5.u) annotation (Line(points={{-49,80},{-40,80},{-40,
           -530},{-20,-530}}, color={255,0,255}));
   connect(yCooReq, and6.u2) annotation (Line(points={{-100,-530},{-44,-530},{-44,
@@ -665,16 +665,16 @@ equation
           -650},{18,-650}}, color={255,0,255}));
   connect(yTan, and7.u2) annotation (Line(points={{-100,-650},{-100,-652},{-76,
           -652},{-76,-660},{12,-660},{12,-658},{18,-658}}, color={255,0,255}));
-  connect(and7.y, tanReq.y) annotation (Line(points={{42,-650},{88,-650},{88,
-          -664},{98,-664},{98,-667}}, color={255,0,255}));
+  connect(and7.y, tanReq.active) annotation (Line(points={{42,-650},{88,-650},{
+          88,-664},{98,-664},{98,-667}}, color={255,0,255}));
   connect(booScaRep6.u, staVer.y) annotation (Line(points={{-22,-640},{-38,-640},
           {-38,-530},{-40,80},{-49,80}}, color={255,0,255}));
   connect(booScaRep7.y, and8.u1) annotation (Line(points={{2,-770},{4,-770},{4,
           -780},{18,-780}}, color={255,0,255}));
   connect(and8.u2, yPum) annotation (Line(points={{18,-788},{-68,-788},{-68,
           -770},{-100,-770}}, color={255,0,255}));
-  connect(and8.y, pumReq.y) annotation (Line(points={{42,-780},{88,-780},{88,
-          -804},{98,-804},{98,-807}}, color={255,0,255}));
+  connect(and8.y, pumReq.active) annotation (Line(points={{42,-780},{88,-780},{
+          88,-804},{98,-804},{98,-807}}, color={255,0,255}));
   connect(booScaRep7.u, staVer.y) annotation (Line(points={{-22,-770},{-38,-770},
           {-38,-530},{-40,80},{-49,80}}, color={255,0,255}));
   connect(yVal, and9.u2) annotation (Line(points={{-100,-890},{-100,-892},{-12,
