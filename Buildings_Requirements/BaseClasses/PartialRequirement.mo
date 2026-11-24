@@ -3,11 +3,11 @@ partial block PartialRequirement "Partial class for requirements"
   parameter String name="unnamed"
     "Name of instance from which variables are used for observation";
 
-  Modelica_Requirements.Verify.Requirement req(text=text)
+  Requirements.Verify.Requirement req(text=text)
     "Requirement check"
     annotation (Placement(transformation(extent={{32,-90},{92,-70}})));
   parameter String text="" "Requirement stated in natural language";
-  inner Modelica_Requirements.Interfaces.ObservationID observationID(final name=
+  inner Requirements.Interfaces.ObservationID observationID(final name=
        name) "Observation ID"
     annotation (Placement(transformation(extent={{60,80},{80,100}})));
   annotation (

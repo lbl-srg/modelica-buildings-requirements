@@ -2,7 +2,7 @@ within Buildings_Requirements.Validation;
 model WithinBand
   "Validation model for block that verifies whether a signal is within a certain band when active"
   extends Modelica.Icons.Example;
-  inner Modelica_Requirements.Verify.PrintViolations printViolations
+  inner Requirements.Verify.PrintViolations printViolations
     "Prints requirements violations"
     annotation (Placement(transformation(extent={{120,60},{140,80}})));
   Buildings_Requirements.WithinBand reqWitBan(

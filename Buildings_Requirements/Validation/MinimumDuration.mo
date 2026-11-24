@@ -11,7 +11,7 @@ model MinimumDuration
   Buildings.Controls.OBC.CDL.Logical.Sources.Pulse booPul(period=30)
     "Boolean pulse signal"
     annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
-  inner Modelica_Requirements.Verify.PrintViolations printViolations
+  inner Requirements.Verify.PrintViolations printViolations
     "Prints requirements violations"
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
 equation

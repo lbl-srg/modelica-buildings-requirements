@@ -1,7 +1,7 @@
 within Buildings_Requirements.Validation;
 model PlantRequirement "Example block for plant requirements model"
   extends Modelica.Icons.Example;
-  inner Modelica_Requirements.Verify.PrintViolations printViolations
+  inner Requirements.Verify.PrintViolations printViolations
     "Prints requirements violations"
     annotation (Placement(transformation(extent={{120,60},{140,80}})));
   Buildings_Requirements.PlantRequirement plantRequirement(

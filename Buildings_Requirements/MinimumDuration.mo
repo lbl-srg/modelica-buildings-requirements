@@ -10,7 +10,7 @@ block MinimumDuration
         transformation(extent={{-140,-20},{-100,20}}), iconTransformation(
           extent={{-140,-20},{-100,20}})));
 
-  Modelica_Requirements.ChecksInFixedWindow.MinDuration minDur(
+  Requirements.ChecksInFixedWindow.MinDuration minDur(
     check=true,
     final durationMin=durationMin) "Check for minimum duration"
     annotation (Placement(transformation(extent={{-40,-10},{0,10}})));

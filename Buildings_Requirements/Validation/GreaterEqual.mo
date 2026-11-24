@@ -2,7 +2,7 @@ within Buildings_Requirements.Validation;
 model GreaterEqual
   "Validation model for block that verifies whether a signal is greater or equal than another signal"
   extends Modelica.Icons.Example;
-  inner Modelica_Requirements.Verify.PrintViolations printViolations
+  inner Requirements.Verify.PrintViolations printViolations
     "Prints requirements violations"
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
   Buildings.Controls.OBC.CDL.Reals.Sources.Sin sin(freqHz=1)

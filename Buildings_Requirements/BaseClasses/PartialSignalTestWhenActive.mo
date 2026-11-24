@@ -43,7 +43,7 @@ public
   Modelica.Blocks.Continuous.Integrator timConVio
     annotation (Placement(transformation(extent={{80,-30},{100,-10}})));
 protected
-  Modelica_Requirements.LogicalBlocks.IntegerToProperty ItoP1
+  Requirements.LogicalBlocks.IntegerToProperty ItoP1
     "Integer to property conversion"
     annotation (Placement(transformation(extent={{44,-60},{64,-40}})));
   Buildings.Controls.OBC.CDL.Conversions.BooleanToInteger booToInt(

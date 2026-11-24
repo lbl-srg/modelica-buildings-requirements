@@ -17,7 +17,7 @@ block StableContinuousSignal
     h=t/20)
     "Check whether signal is stable"
     annotation (Placement(transformation(extent={{140,30},{160,50}})));
-  Modelica_Requirements.SignalAnalysis.MovingAverage movAve(
+  Requirements.SignalAnalysis.MovingAverage movAve(
     final T=T,
     u(unit="1/s"),
     y(unit="1/s"))

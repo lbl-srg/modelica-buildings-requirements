@@ -10,7 +10,7 @@ block WithinBand
     "Monitored quantity" annotation (
       Placement(transformation(extent={{-140,20},{-100,60}}),
         iconTransformation(extent={{-120,30},{-100,50}})));
-  Modelica_Requirements.LogicalBlocks.WithinBand witBan(
+  Requirements.LogicalBlocks.WithinBand witBan(
     u_min = u_min,
     u_max = u_max) "Outputs true if input is within band"
     annotation (Placement(transformation(extent={{12,40},{52,60}})));

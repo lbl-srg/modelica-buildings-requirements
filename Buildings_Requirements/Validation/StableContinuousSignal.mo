@@ -2,7 +2,7 @@ within Buildings_Requirements.Validation;
 model StableContinuousSignal
   "Validation model for block that verifies whether a signal is stable when active"
   extends Modelica.Icons.Example;
-  inner Modelica_Requirements.Verify.PrintViolations printViolations
+  inner Requirements.Verify.PrintViolations printViolations
     "Prints requirements violations"
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
   Buildings.Controls.OBC.CDL.Reals.Sources.Sin sin(
