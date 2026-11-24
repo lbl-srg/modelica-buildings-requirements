@@ -70,9 +70,9 @@ block PumpRequirement
     T=tWin,
     t=t) "Requirement to verify stability of pump control signal"
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-  Buildings.Controls.OBC.CDL.Interfaces.BooleanInput y
-    "Pumps on signal" annotation (Placement(transformation(extent={{-140,20},{-100,
-            60}}),  iconTransformation(extent={{-140,10},{-100,50}})));
+  Buildings.Controls.OBC.CDL.Interfaces.BooleanInput active "Pumps on signal"
+    annotation (Placement(transformation(extent={{-140,20},{-100,60}}),
+        iconTransformation(extent={{-140,10},{-100,50}})));
   Buildings.Controls.OBC.CDL.Interfaces.RealInput m_flow(final unit="kg/s",
       displayUnit="kg/s")             "Pump massflow rate" annotation (
       Placement(transformation(extent={{-140,-10},{-100,30}}),
@@ -89,19 +89,19 @@ block PumpRequirement
 equation
   connect(not1.y, reqOff.u)
     annotation (Line(points={{42,50},{58,50}}, color={255,0,255}));
-  connect(y, reqOn.u) annotation (Line(points={{-120,40},{-70,40},{-70,50},{-62,
-          50}}, color={255,0,255}));
-  connect(y,not1. u) annotation (Line(points={{-120,40},{-70,40},{-70,66},{8,
-          66},{8,50},{18,50}},            color={255,0,255}));
-  connect(y, reqmFlow.active) annotation (Line(points={{-120,40},{-96,40},{-96,
-          6},{-82,6}}, color={255,0,255}));
+  connect(active, reqOn.u) annotation (Line(points={{-120,40},{-70,40},{-70,50},
+          {-62,50}}, color={255,0,255}));
+  connect(active, not1.u) annotation (Line(points={{-120,40},{-70,40},{-70,66},
+          {8,66},{8,50},{18,50}}, color={255,0,255}));
+  connect(active, reqmFlow.active) annotation (Line(points={{-120,40},{-96,40},
+          {-96,6},{-82,6}}, color={255,0,255}));
   connect(m_flow, reqmFlow.u) annotation (Line(points={{-120,10},{-90,10},{-90,
           14},{-81,14}}, color={0,0,127}));
   connect(dp, reqDp.u) annotation (Line(points={{-120,-20},{-24,-20},{-24,10},
           {30,10},{30,14},{39,14}}, color={0,0,127}));
-  connect(y, reqDp.active) annotation (Line(points={{-120,40},{-70,40},{-70,66},
-          {8,66},{8,6},{38,6}}, color={255,0,255}));
-  connect(y, reqSta.active) annotation (Line(points={{-120,40},{-96,40},{-96,
+  connect(active, reqDp.active) annotation (Line(points={{-120,40},{-70,40},{-70,
+          66},{8,66},{8,6},{38,6}}, color={255,0,255}));
+  connect(active, reqSta.active) annotation (Line(points={{-120,40},{-96,40},{-96,
           6},{-90,6},{-90,-34},{-22,-34}}, color={255,0,255}));
   connect(yCon, reqSta.u) annotation (Line(points={{-120,-50},{-30,-50},{-30,
           -26},{-21,-26}}, color={0,0,127}));

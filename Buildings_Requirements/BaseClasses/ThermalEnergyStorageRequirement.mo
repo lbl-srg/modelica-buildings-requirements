@@ -14,9 +14,9 @@ block ThermalEnergyStorageRequirement
     final unit="K",
     displayUnit="K") = 273.15 + 2
     "Minimum allowed tank temperature";
-  Buildings.Controls.OBC.CDL.Interfaces.BooleanInput y
-    "Tanks monitor signal" annotation (Placement(transformation(extent={{-140,40},
-            {-100,80}}), iconTransformation(extent={{-140,10},{-100,50}})));
+  Buildings.Controls.OBC.CDL.Interfaces.BooleanInput active
+    "Tanks monitor signal" annotation (Placement(transformation(extent={{-140,
+            40},{-100,80}}), iconTransformation(extent={{-140,10},{-100,50}})));
   Buildings.Controls.OBC.CDL.Interfaces.RealInput TSetUpp(final unit="K",
       displayUnit="degC") "Tank upper bound setpoint temperature" annotation (
       Placement(transformation(extent={{-140,10},{-100,50}}),iconTransformation(
@@ -69,10 +69,10 @@ block ThermalEnergyStorageRequirement
   parameter Real tThr=600
     "Threshold time for constraint to be considered violated";
 equation
-  connect(y,greTUpp. active) annotation (Line(points={{-120,60},{-34,60},{
-          -34,66},{-22,66}},                         color={255,0,255}));
-  connect(y,greTLow. active) annotation (Line(points={{-120,60},{-34,60},{
-          -34,48},{20,48},{20,66},{38,66}},          color={255,0,255}));
+  connect(active, greTUpp.active) annotation (Line(points={{-120,60},{-34,60},{
+          -34,66},{-22,66}}, color={255,0,255}));
+  connect(active, greTLow.active) annotation (Line(points={{-120,60},{-34,60},{
+          -34,48},{20,48},{20,66},{38,66}}, color={255,0,255}));
   connect(TSetUpp,greTUpp. u_max) annotation (Line(points={{-120,30},{-80,
           30},{-80,76},{-21,76}},                        color={0,0,127}));
   connect(TSetLow,greTLow. u_min) annotation (Line(points={{-120,-10},{-28,
